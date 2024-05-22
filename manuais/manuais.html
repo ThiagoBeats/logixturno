@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuais</title>
+    <link rel="stylesheet" href="./manuais.css">
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="shortcut icon" href="../Imagens/icons8-escritório-94.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        
+        <div>
+            <a id="imgPID" id="imgRelatorio" href="../PID/PID.html">
+                <img src="../Imagens/grafico-de-linha.png" alt="" />
+            </a>
+            <p class="tooltip">Encontrar PID</p>
+        </div>
+        <div>
+            <a id="imgRelatorio" href="../index.html">
+                <img src="../Imagens/icons8-relatório-100.png" alt="" />
+            </a>
+            <p class="tooltip">Relatório</p>
+        </div>
+        <div>
+            <a id="imgEquipamentos" href="../equipamentos/index.html">
+                <img src="../Imagens/icons8-equipment-64.png" alt="" />
+            </a>
+            <p class="tooltip">Equipamentos</p>
+        </div>
+        <div>
+            <a id="imgAcessos" href="../acessos/acessos.html">
+                <img src="../Imagens/icons8-lock-48.png" alt="" />
+            </a>
+            <p class="tooltip">Acessos</p>
+        </div>
+        <div>
+            <p id="imgManuais">
+                <img src="../Imagens/icons8-manual-80.png" alt="" />
+            </p>
+            <p class="tooltip">Manuais</p>
+        </div>
+    </header>
+    <main>
+        <div class="addDoc" id="addDoc">
+            <input class="nomeManual" id="nomeManual" type="text" placeholder="Nome do manual">
+            <input class="linkManual" id="linkManual" type="text" placeholder="Link do manual">
+            <button id="botaoBusca">Adicionar</button>
+        </div>
+        <hr>
+        <div class="mainDiv" id="mainDiv">
+
+
+            <div class="header">
+                <p>Buscar manual </p>
+                <input id="tagInput" type="text" placeholder="Ex: Rockwell">
+            </div>
+
+
+            <p class="buttons" id="results">0 resultados encontrados </p>
+        </div>
+        <hr>
+        <div class="Informations" id="informations">
+
+        </div>
+    </main>
+    <div class="preview"></div>
+
+
+    <script type="module">
+        
+        //Esse script precisa ser colocado no HTML
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFoUHMYbkGZi_nHhtd1YpUJRwudrWf5eM",
+            authDomain: "vale-64f06.firebaseapp.com",
+            projectId: "vale-64f06",
+            storageBucket: "vale-64f06.appspot.com",
+            messagingSenderId: "588773080254",
+            appId: "1:588773080254:web:690d7eb9aba8d18c85b2ef"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        import { getDatabase, ref, child, get, set, update, remove } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        const db = getDatabase();
+
+        //Campo de busca
+        let valor = document.getElementById("tagInput")
+        let botaoBusca = document.getElementById("botaoBusca")
+
+        //Função para adicionar dados ao banco
+        function addData(ichave, ivalor) {
+            set(ref(db, ichave), ivalor)
+                .then(() => { alert("Dado inserido") })
+                .catch(() => { alert("Erro") })
+        }
+
+        //Função para buscar dados no banco
+        function retData(chave) {
+            const dbRef = ref(db)
+            get(child(dbRef, chave)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    //console.log(snapshot.val())
+                    localStorage.setItem("valorEncontrado", snapshot.val())
+                    if (localStorage.getItem("valorEncontrado").includes("http")) {
+                        insereParagrafo(chave, localStorage.getItem("valorEncontrado"))
+                    } else {
+                        insereParagrafo(chave, "http://" + localStorage.getItem("valorEncontrado"))
+                    }
+                    console.log(localStorage.getItem("valorEncontrado"))
+                    return snapshot.val()
+                } else {
+                    alert("Manual não existe")
+                }
+            })
+        }
+
+        //Pega o valor da busca e verifica os matches no banco
+        function buscaNoBanco(params) {
+            async function exemploAsync() {
+                const chaves = await buscarChaves();
+                return chaves;
+            }
+
+            exemploAsync()
+                .then((chaves) => {
+                    var contagem = 0;
+                    var tagToFind = document.getElementById("tagInput").value;
+                    for (let index = 0; index < chaves.length; index++) {
+                        retData(chaves[index]).then((data) => {
+                            console.log(data);
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error("Erro ao buscar chaves:", error);
+                    // Trate erros aqui, se necessário
+                });
+        }
+
+        var chavesEnc
+        //Retorna todas as chaves do banco
+        function buscarChaves() {
+            const dbRef = ref(db);
+            return get(dbRef).then((snapshot) => {
+                const chaves = [];
+                if (snapshot.exists()) {
+                    snapshot.forEach((childSnapshot) => {
+                        const chave = childSnapshot.key;
+                        chaves.push(chave);
+                    });
+                } else {
+                    alert("Não existem dados no banco");
+                }
+                chavesEnc = chaves
+                return chaves;
+            });
+        }
+
+        // Função assíncrona para buscar chaves e atribuir a chavesEnc
+        async function buscarChavesAsync() {
+            try {
+                const chaves = await buscarChaves();
+                chavesEnc = chaves;
+                // Aqui você pode fazer algo com chavesEnc
+                console.log(chavesEnc);
+                localStorage.setItem("chavesEncontradas", chavesEnc)
+            } catch (error) {
+                console.error("Erro ao buscar chaves:", error);
+                // Trate erros aqui, se necessário
+            }
+        }
+
+        // Chamada da função buscarChavesAsync
+        buscarChavesAsync();
+        buscaValorInserido()
+
+        function buscaValorInserido() {
+            let chaves2 = localStorage.getItem("chavesEncontradas").split(",")
+            let valores = valor.value.split(" ") //Pega o que foi inserido no campo de pesquisa e divide em palavras
+            let matches = []
+            // console.log(chaves2)
+
+            for (let index = 0; index < valores.length; index++) { //itera entre as palavras da busca
+                for (let index2 = 0; index2 < chaves2.length; index2++) { //Itera entre as chaves do banco
+                    if (chaves2[index2].toLowerCase().includes(valores[index].toLowerCase()) && !(matches.includes(chaves2[index2]))) {
+                        //console.log("Match: " + chaves2[index2])
+                        matches.push(chaves2[index2])
+                    }
+                }
+            }
+            for (let index3 = 0; index3 < matches.length; index3++) {
+                retData(matches[index3])
+
+                // console.log(localStorage.getItem("valorEncontrado"))
+            }
+            if (matches.length == 0) {
+                alert("Nenhum manual encontrado")
+            }
+            document.getElementById("results").innerHTML = matches.length + " resultados encontrados";
+            excluirParagrafos()
+        }
+
+
+        localStorage.setItem("color", "lightgray")
+        function insereParagrafo(titulo, link) {
+
+            var paragr = document.createElement("a");
+            paragr.textContent = titulo;
+            paragr.style.backgroundColor = localStorage.getItem("color");
+            if (localStorage.getItem("color") == "lightgray") {
+                localStorage.setItem("color", "white")
+            } else {
+                localStorage.setItem("color", "lightgray")
+            }
+            paragr.id = "paragr";
+            paragr.className = "paragr";
+            paragr.href = link;
+            paragr.target = "_blank"
+            document.getElementById("informations").appendChild(paragr);
+
+        }
+
+        function excluirParagrafos() {
+            var paragrafos = document.getElementsByClassName("paragr");
+            // Verificar se há parágrafos antes de tentar removê-los
+            if (paragrafos.length > 0) {
+                for (var i = paragrafos.length - 1; i >= 0; i--) {
+                    var paragrafo = paragrafos[i];
+                    paragrafo.remove();
+                }
+            }
+        }
+
+        function adicionaManual() {
+            console.log("fads")
+            if (document.getElementById("nomeManual").value == "") {
+                alert("Preencha o nome do documento")
+            }else{
+                if(document.getElementById("linkManual").value == ""){
+                    alert("Preencha o link do documento")
+                }else{
+                    let manName = "" + document.getElementById("nomeManual").value.replace("/","-")
+                    let manLink = "" + document.getElementById("linkManual").value
+                    addData(manName, manLink)
+                    document.getElementById("nomeManual").value = ""
+                    document.getElementById("linkManual").value = ""
+                    buscarChavesAsync();
+                }
+            }
+        }
+        //Adiciona um listener no campo de busca 
+        // valor.addEventListener("change", addData)
+        valor.addEventListener("change", buscaValorInserido)
+        botaoBusca.addEventListener("click", adicionaManual)
+        //valor.addEventListener("change", retData)
+        // valor.addEventListener("change", buscarChaves)
+
+    </script>
+
+    <script src="./manuais.js"></script>
+</body>
+
+
+
+</html>
