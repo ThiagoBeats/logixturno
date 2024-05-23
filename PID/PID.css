@@ -101,7 +101,9 @@ select {
   gap: 1%;
   margin: 1%;
 }
-
+.tabela{
+  overflow: scroll;
+}
 table {
   border-collapse: collapse;
   border: 2px solid rgb(140 140 140);
