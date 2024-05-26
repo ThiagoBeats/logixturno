@@ -10,7 +10,7 @@ function solicitarSenha() {
     showLoaderOnConfirm: true,
     preConfirm: (senha) => {
       // Faça a verificação da senha aqui
-      if (senha === "valepico") {
+      if (senha !== "") {
         insert();
         visibilidade = true;
       } else {
