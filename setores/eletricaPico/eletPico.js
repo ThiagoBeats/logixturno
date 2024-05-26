@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }else{
               document.getElementById("solucao").value += 
               "*OBS:* " + obs + 
-              "\n_\n";
+              "_\n";
             }
           document.getElementById("probl").value = "";
           document.getElementById("solu").value = "";
