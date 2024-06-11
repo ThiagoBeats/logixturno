@@ -219,6 +219,13 @@ textarea {
     width: auto;
     margin-right: 10px;
   }
+  transition: 0.1s;
+  &:hover{
+    scale: 1.005;
+    -webkit-box-shadow: 0px 0px 9px 6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px 6px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px 6px rgba(0,0,0,0.75);
+  }
 }
 
 #texto{
