@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        
+
         <div>
             <a id="imgPID" id="imgRelatorio" href="../PID/PID.html">
                 <img src="../Imagens/grafico-de-linha.png" alt="" />
@@ -72,7 +72,7 @@
 
 
     <script type="module">
-        
+
         //Esse script precisa ser colocado no HTML
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
@@ -99,7 +99,7 @@
         //Função para adicionar dados ao banco
         function addData(ichave, ivalor) {
             set(ref(db, ichave), ivalor)
-                .then(() => { alert("Dado inserido") })
+                .then(() => { alert("Dado inserido")})
                 .catch(() => { alert("Erro") })
         }
 
@@ -115,7 +115,7 @@
                     } else {
                         insereParagrafo(chave, "http://" + localStorage.getItem("valorEncontrado"))
                     }
-                    console.log(localStorage.getItem("valorEncontrado"))
+                    //console.log(localStorage.getItem("valorEncontrado"))
                     return snapshot.val()
                 } else {
                     alert("Manual não existe")
@@ -171,7 +171,7 @@
                 const chaves = await buscarChaves();
                 chavesEnc = chaves;
                 // Aqui você pode fazer algo com chavesEnc
-                console.log(chavesEnc);
+                //console.log(chavesEnc);
                 localStorage.setItem("chavesEncontradas", chavesEnc)
             } catch (error) {
                 console.error("Erro ao buscar chaves:", error);
@@ -214,6 +214,8 @@
         function insereParagrafo(titulo, link) {
 
             var paragr = document.createElement("a");
+            var image = document.createElement("img");
+
             paragr.textContent = titulo;
             paragr.style.backgroundColor = localStorage.getItem("color");
             if (localStorage.getItem("color") == "lightgray") {
@@ -225,7 +227,23 @@
             paragr.className = "paragr";
             paragr.href = link;
             paragr.target = "_blank"
+
+            //Seleção de icone
+            image.src = "https://img.icons8.com/color/48/questions.png"
+            if (link.includes("watch")) {
+                image.src = "https://img.icons8.com/color/48/000000/video-file.png"
+            }
+            if (link.includes(".pdf")) {
+                image.src = "https://img.icons8.com/3d-fluency/94/pdf.png"
+            }
+            if (link.includes(".jpg") || link.includes(".webp") || link.includes(".jpeg") || link.includes(".png")) {
+                image.src = "https://img.icons8.com/color/48/image-file.png"
+            }
+
+
             document.getElementById("informations").appendChild(paragr);
+            var paragrafos = document.getElementsByClassName("paragr")
+            paragrafos[paragrafos.length - 1].appendChild(image)
 
         }
 
@@ -244,13 +262,14 @@
             console.log("fads")
             if (document.getElementById("nomeManual").value == "") {
                 alert("Preencha o nome do documento")
-            }else{
-                if(document.getElementById("linkManual").value == ""){
+            } else {
+                if (document.getElementById("linkManual").value == "") {
                     alert("Preencha o link do documento")
-                }else{
-                    let manName = "" + document.getElementById("nomeManual").value.replace("/","-")
+                } else {
+                    let manName = "" + document.getElementById("nomeManual").value.replace("/", "-")
                     let manLink = "" + document.getElementById("linkManual").value
                     addData(manName, manLink)
+                    buscaValorInserido()
                     document.getElementById("nomeManual").value = ""
                     document.getElementById("linkManual").value = ""
                     buscarChavesAsync();
