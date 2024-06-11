@@ -230,6 +230,9 @@
 
             //Seleção de icone
             image.src = "https://img.icons8.com/color/48/questions.png"
+            if (link.includes(".aspx")) {
+                image.src = "https://img.icons8.com/color/48/doc.png"
+            }
             if (link.includes("watch")) {
                 image.src = "https://img.icons8.com/color/48/000000/video-file.png"
             }
