@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Playwrite+NZ:wght@100..400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Calibri", Courier, monospace;
+  font-size: 8pt;
+}
+
+.page {
+  border: 2px solid black;
+  width: 21cm; /* Largura da página A4 */
+  height: 29.7cm; /* Altura da página A4 */
+  background-color: white;
+  margin: 0 auto; /* Centralizar a página horizontalmente */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Adicionar uma sombra */
+}
+
+.head {
+  position: relative;
+  top: -2px;
+  left: -2px;
+  display: flex;
+  border: solid 2px black;
+  width: 100%;
+  height: 1.4cm;
+  align-items: center;
+  justify-content: space-between;
+}
+.div1 {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin: 2px;
+  > #img1 {
+    border-right: 2px solid black;
+  }
+  > img {
+    padding: 0 5px 0 5px;
+    height: 100%;
+  }
+}
+
+.div2 {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.div3 {
+  width: 16%;
+  > p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.relatgeral {
+  font-weight: 600;
+  position: relative;
+  top: -4px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: 0.8cm;
+  border: 2px solid black;
+}
+.infGerais {
+  font-weight: 600;
+  color: white;
+  background-color: darkslategray;
+  position: relative;
+  top: -6px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 0.3cm;
+  border: 2px solid black;
+}
+
+.nomeExec {
+  font-weight: 600;
+  font-size: 12pt;
+  position: relative;
+  top: -8px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: 0.8cm;
+  border: 2px solid black;
+  > #exec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -2px;
+    width: 5cm;
+    border: 2px solid black;
+    height: 0.8cm;
+  }
+  > .nomeExecutante {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -2px;
+    width: calc(100% - 5cm - 2px);
+    border: 2px solid black;
+    height: 0.8cm;
+  }
+}
+.linha1 {
+  position: relative;
+  top: -10px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 0.3cm;
+  border: 2px solid black;
+  width: 100%;
+  > :nth-child(1) {
+    left: -2px;
+    width: 3.15cm;
+    position: relative;
+  }
+  > :nth-child(2) {
+    width: 3.15cm;
+    position: relative;
+    left: -4px;
+    justify-content: center;
+  }
+  > :nth-child(3) {
+    width: 6.3cm;
+    position: relative;
+    left: -6px;
+  }
+  > :nth-child(4) {
+    position: relative;
+    right: -2px;
+    justify-content: center;
+    width: 8.6cm;
+    border-left: none;
+  }
+  > p {
+    height: 0.3cm;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.linha2 {
+  position: relative;
+  top: -12px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 0.3cm;
+  border: 2px solid black;
+  width: 100%;
+  > :nth-child(1) {
+    left: -2px;
+    width: 3.15cm;
+    position: relative;
+  }
+  > :nth-child(2) {
+    width: 3.15cm;
+    position: relative;
+    left: -4px;
+    justify-content: center;
+  }
+  > :nth-child(3) {
+    width: 6.3cm;
+    position: relative;
+    left: -6px;
+  }
+  > :nth-child(4) {
+    position: relative;
+    right: -2px;
+    justify-content: center;
+    width: 3.2cm;
+    border-left: none;
+  }
+  > :nth-child(5) {
+    position: relative;
+    right: -2px;
+    width: 2.1cm;
+    border-left: none;
+  }
+  > :nth-child(6) {
+    position: relative;
+    right: -2px;
+    justify-content: center;
+    width: 3.2cm;
+    border-left: none;
+    background-color: aqua;
+  }
+  > p {
+    height: 0.3cm;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.divisor1 {
+  position: relative;
+  top: -12px;
+  height: 5px;
+  background-color: blue;
+}
+
+.linha3 {
+  position: relative;
+  top: -8px;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 0.3cm;
+  border: 2px solid black;
+  width: 100%;
+  > :nth-child(1) {
+    left: -2px;
+    width: 4.5cm;
+    position: relative;
+    justify-content: center;
+  }
+  > :nth-child(2) {
+    width: 4cm;
+    position: relative;
+    left: -4px;
+    justify-content: center;
+  }
+  > :nth-child(3) {
+    width: 2cm;
+    justify-content: center;
+    position: relative;
+    left: -6px;
+  }
+  > :nth-child(4) {
+    position: relative;
+    right: -2px;
+    justify-content: center;
+    width: 4cm;
+    border-left: none;
+  }
+  > :nth-child(5) {
+    position: relative;
+    right: -2px;
+    width: 2.1cm;
+    border-left: none;
+  }
+  > :nth-child(6) {
+    position: relative;
+    right: -2px;
+    justify-content: center;
+    width: 4cm;
+    border-left: none;
+    background-color: aqua;
+  }
+  > p {
+    height: 0.3cm;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.inf3 {
+  margin-top: 4px;
+}
+
+.Assinaturas {
+  position: relative;
+  top: -8px;
+  left: -2px;
+  height: 1cm;
+  width: calc(100% + 4px);
+  display: flex;
+}
+.Ass1 {
+  border: 2px solid black;
+  padding-left: 2px;
+  border-left: 0px solid transparent;
+  width: 50%;
+  height: 100%;
+}
+
+#assinaturaColab {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playwrite NZ", cursive;
+  font-optical-sizing: auto;
+  font-size: 12pt;
+  width: 100%;
+  height: 75%;
+}
+
+.escopoLocal {
+  position: relative;
+  top: -8px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .page * {
+    visibility: visible;
+  }
+}
+
+.HeaderTabela{
+  position: relative;
+  top: -10px;
+  left: -2px;
+  display: flex;
+  flex-direction: row;
+  width: calc(100% + 2px);
+  background-color: darkslategray;
+  >p{
+    font-weight: 600;
+    border: 2px solid black;
+    border-right: 0px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  >:nth-child(1){
+    width: 5%;
+    font-size: 6pt;
+  }
+  >:nth-child(2){
+    width: 5%;
+  }
+  >:nth-child(3){
+    width: 34%;
+  }
+  >:nth-child(4){
+    width: 8%;
+  }
+  >:nth-child(5){
+    width: 8%;
+  }
+  >:nth-child(6){
+    width: calc(34%);
+  }
+  >:nth-child(7){
+    width: 6%;
+  }
+}
+textarea{
+  font-weight: 500;
+  font-size: 8pt;
+  padding: 5px 0px 5px 0px;
+  border: 2px solid black;
+  border-right: 0px solid transparent;
+  overflow-y: hidden; /* Oculta a barra de rolagem vertical */
+  box-sizing: border-box;
+  height: auto;
+  min-height: 1cm;
+}
+.TabLinha{
+  position: relative;
+  top: -12px;
+  left: -2px;
+  display: flex;
+  flex-direction: row;
+  width: calc(100% + 2px);
+  >p{
+    font-weight: 500;
+    border: 2px solid black;
+    border-right: 0px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  >:nth-child(1){
+    width: 5%;
+  }
+  >:nth-child(2){
+    width: 5%;
+  }
+  >:nth-child(3){
+    width: 34%;
+  }
+  >:nth-child(4){
+    width: 8%;
+  }
+  >:nth-child(5){
+    width: 8%;
+  }
+  >:nth-child(6){
+    width: 34%;
+  }
+  >:nth-child(7){
+    width: 6%;
+  }
+}
+
+.desenv{
+  position: fixed;
+  top: 40vh;
+  left: 0;
+  text-align: center;
+  font-size: 100pt;
+  width: 100vw;
+  z-index: 999;
+  opacity: 0.5;
+}

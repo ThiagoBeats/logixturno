@@ -78,7 +78,7 @@ function atualizaSolucoes() {
     window.alert("Preencha a tag do equipamento");
   } else if (Acionamento.includes("undefined")) {
     window.alert("Preencha o horário do atendimento");
-  } else if (turno == "" || nome == "" || data == "" || matricula == "") {
+  } else if (turno == "" || nome == "" || data == "//" || matricula == "") {
     window.alert("Preencha seus dados pessoais e a data de hoje");
   } else if (textoProblema == "") {
     window.alert("Preencha o problema ocorrido");
@@ -115,6 +115,7 @@ function atualizaSolucoes() {
           "\n\n*Encerramento:* " +
           Encerramento +
           "\n_\n";
+          geradorRSA()
         document.getElementById("Incidente").value = "";
         document.getElementById("probl").value = "";
         document.getElementById("solu").value = "";
@@ -261,4 +262,36 @@ function verificaSetor() {
       window.location.href = './setores/eletricaPico/eletPico.html'
   }
 }}
+
+//Salva os dados para gerar o RSA
+function geradorRSA(){
+  let dataProblema = "dia_" + data + "_probl"
+  let dataSolucao = "dia_" + data + "_solu"
+  if (localStorage.getItem(dataProblema) == null) {
+    localStorage.setItem(dataProblema, document.getElementById("Incidente").value + " - " + document.getElementById("probl").value + "\n\n")
+  } else {
+    localStorage.setItem(dataProblema, localStorage.getItem(dataProblema) + document.getElementById("Incidente").value + " - " + document.getElementById("probl").value + "\n\n")
+  }
+
+  if (localStorage.getItem(dataSolucao) == null) {
+    localStorage.setItem(dataSolucao, document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n")
+  } else {
+    localStorage.setItem(dataSolucao, localStorage.getItem(dataSolucao) + document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n")
+  }
+}
+
+let arrayRSA = ["colaborador", "fiscal"]
+function geradorRSA2() {
+  arrayRSA[0] = document.getElementById("Nome").value;
+  arrayRSA[1] = "Marina Sousa"
+  arrayRSA.push({
+    data: document.getElementById("Data").value,
+    incidente: document.getElementById("Incidente").value,
+    problema: document.getElementById("probl").value,
+    solucao: document.getElementById("solu").value
+  })
+  // let RSASalvo = localStorage.getItem("DadosRSA")
+  // RSASalvo += arrayRSA;
+   localStorage.setItem("DadosRSA", arrayRSA)
+}
 
