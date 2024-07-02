@@ -18,6 +18,10 @@ function atualizaData(params) {
   const initialDate = document.getElementById("dataInicial").value
   const initialDateObj = new Date(initialDate);
 
+  //Altera o nome do documento
+  const nomePagina = document.getElementsByTagName("title")
+  nomePagina[0].innerText = "RSA 5900107948 - SUL - " + localStorage.getItem("nomeSalvo") + " - " + initialDateObj.getFullYear() + "_" + (initialDateObj.getMonth() + 1) + "_" + (initialDateObj.getDate() + 1);
+
   for (let index = 0; index < 7; index++) {
     initialDateObj.setDate(initialDateObj.getDate() + 1);
     document.getElementsByClassName("tabData")[index].innerText = formatDate(initialDateObj).split(",")[1]
@@ -26,6 +30,7 @@ function atualizaData(params) {
   }
   adjustTextareaHeight()
   adjustTextareaHeight2()
+  verifyHeight()
   document.getElementById("dataFinal").innerText = formatDate(initialDateObj).split(",")[1]
   
 }
@@ -128,4 +133,8 @@ function uploadImages() {
 function limparImagens() {
   const imageContainer = document.getElementById('imageContainer');
   imageContainer.innerHTML = '';
+}
+
+function pageName() {
+  
 }

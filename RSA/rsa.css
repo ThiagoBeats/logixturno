@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Playwrite+NZ:wght@100..400&display=swap");
 * {
   margin: 0;
@@ -14,26 +15,28 @@ body {
 
 .page {
   border: 2px solid black;
-  width: 21cm; /* Largura da página A4 */
-  min-height: 30cm;
-  height: auto; /* Altura da página A4 */
+  width: 19cm; /* Largura da página A4 */
+  height: 27.7cm;
+  /* height: auto; Altura da página A4 */
   background-color: white;
   margin: 0 auto; /* Centralizar a página horizontalmente */
+  margin-top: 1cm;
   box-shadow: 0 5px 5px rgba(221, 24, 24, 0.1); /* Adicionar uma sombra */
 }
 
 .bordaInferior{
-  width: 21cm;
+  width: 19cm;
   height: 0px;
   border: 1px solid black;
   position: absolute;
-  top: 30.7cm;
+  top: 28.7cm;
 }
 
 .imgFundo{
   position: absolute;
+  left: -0px;
   z-index: -1;
-  width: 100%;
+  width: calc(19cm);
   height: 100%;
 }
 
@@ -363,20 +366,6 @@ body {
   top: -8px;
 }
 
-@media print {
-  body * {
-    visibility: hidden;
-  }
-
-  .naoImprimir * {
-    visibility: hidden;
-  }
-
-  .page * {
-    visibility: visible;
-  }
-}
-
 .HeaderTabela{
   position: relative;
   top: -10px;
@@ -416,6 +405,14 @@ body {
   }
   >:nth-child(8){
     width: 6%;
+  }
+
+  >img{
+    position: absolute;
+    left: -0px;
+    z-index: -1;
+    width: calc(19cm + 2px);
+    height: 100%;
   }
 }
 textarea{
@@ -481,6 +478,8 @@ textarea{
 }
 
 #imageContainer{
+  padding-top: 15px;
+  page-break-inside: avoid;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -488,9 +487,9 @@ textarea{
 }
 
 .Desvios {
+  page-break-inside: avoid;
   font-weight: 600;
   color: #f0f0f0;
-  /* background-image: url('./imagens/fundo.jpg'); */
   position: relative;
   top: 1cm;
   left: -2px;
@@ -512,6 +511,7 @@ tbody{
 }
 
 table {
+  page-break-inside: avoid;
   width: 100%;
   margin: 0;
   position: relative;
@@ -532,10 +532,76 @@ tr{
 }
 
 .naoImprimir{
+  border-radius: 5px;
+  border: 2px solid darkcyan;
   width: 200px;
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 85%;
+  top: 65%;
   left: 10px;
+  background-color: darkgray;
+  padding: 10px;
+  height: 22%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12pt;
+  > button, >input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    border-radius: 10px;
+    border: solid lightgray 2px;
+    font-family: "Roboto";
+    text-align: center;
+    height: 30px;
+  }
+
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .naoImprimir{
+    display: none;
+  }
+
+  .page * {
+    visibility: visible;
+    
+  }
+  @page {
+    margin: 0;
+    size: auto;
+    border: 2px solid black;
+  }
+}
+
+.observacoes{
+  page-break-inside: avoid;
+  margin-top: 0.2cm;
+  border: 2px solid black;
+  >div{
+    height: 0.5cm;}
+  >:nth-child(2){
+    border-bottom: 1px dashed black;
+  }
+}
+
+.evidencias{
+  page-break-inside: avoid;
+  margin-top: 0.2cm;
+  border: 2px solid black;
+}
+
+img:hover{
+  transition: 0.2s;
+  scale: 1.2;
+}
+
+
