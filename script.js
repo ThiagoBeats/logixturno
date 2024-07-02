@@ -115,6 +115,7 @@ function atualizaSolucoes() {
           "\n\n*Encerramento:* " +
           Encerramento +
           "\n_\n";
+          localStorage.setItem("nomeFiscal", "Marina Sousa")
           geradorRSA()
         document.getElementById("Incidente").value = "";
         document.getElementById("probl").value = "";
@@ -267,6 +268,7 @@ function verificaSetor() {
 function geradorRSA(){
   let dataProblema = "dia_" + data + "_probl"
   let dataSolucao = "dia_" + data + "_solu"
+
   if (localStorage.getItem(dataProblema) == null) {
     localStorage.setItem(dataProblema, document.getElementById("Incidente").value + " - " + document.getElementById("probl").value + "\n\n")
   } else {
@@ -274,24 +276,24 @@ function geradorRSA(){
   }
 
   if (localStorage.getItem(dataSolucao) == null) {
-    localStorage.setItem(dataSolucao, document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n")
+    localStorage.setItem(dataSolucao, document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n\n")
   } else {
     localStorage.setItem(dataSolucao, localStorage.getItem(dataSolucao) + document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n")
   }
 }
 
-let arrayRSA = ["colaborador", "fiscal"]
-function geradorRSA2() {
-  arrayRSA[0] = document.getElementById("Nome").value;
-  arrayRSA[1] = "Marina Sousa"
-  arrayRSA.push({
-    data: document.getElementById("Data").value,
-    incidente: document.getElementById("Incidente").value,
-    problema: document.getElementById("probl").value,
-    solucao: document.getElementById("solu").value
-  })
-  // let RSASalvo = localStorage.getItem("DadosRSA")
-  // RSASalvo += arrayRSA;
-   localStorage.setItem("DadosRSA", arrayRSA)
-}
+// let arrayRSA = ["colaborador", "fiscal"]
+// function geradorRSA2() {
+//   arrayRSA[0] = document.getElementById("Nome").value;
+//   arrayRSA[1] = "Marina Sousa"
+//   arrayRSA.push({
+//     data: document.getElementById("Data").value,
+//     incidente: document.getElementById("Incidente").value,
+//     problema: document.getElementById("probl").value,
+//     solucao: document.getElementById("solu").value
+//   })
+//   // let RSASalvo = localStorage.getItem("DadosRSA")
+//   // RSASalvo += arrayRSA;
+//    localStorage.setItem("DadosRSA", arrayRSA)
+// }
 

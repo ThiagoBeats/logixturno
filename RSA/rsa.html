@@ -8,163 +8,246 @@
     <link rel="stylesheet" href="./imagens/print.css" media="print">
     <title>RSA</title>
 </head>
-<h1 class="desenv">
+<!-- <h1 class="desenv">
     EM DESENVOLVIMENTO
-</h1>
+</h1> -->
+
 <body class="page">
-    <div>
-        
-        <div class="head">
-            <div class="div1"><img id="img1" src="./imagens/vale2.png" alt="">
-                <img src="./imagens/logix2.png" alt="">
-            </div>
-            <div class="div2">
-                <div>
-                    <p>DIR TECNOLOGIA DA INFORMAÇÃO</p>
-                    <p>GER EXEC OPERAÇÕES TECNOLOGIA INDUSTRIAL</p>
-                    <p>GER SERVIÇOS TECNOLOGIA AUTOMAÇÃO SUL</p>
+    <div class="bordaInferior"></div>
+    <div class="">
+        <div>
+
+            <div class="head">
+                <div class="div1"><img id="img1" src="./imagens/vale2.png" alt="">
+                    <img src="./imagens/logix2.png" alt="">
+                </div>
+                <div class="div2">
+                    <div>
+                        <p>DIR TECNOLOGIA DA INFORMAÇÃO</p>
+                        <p>GER EXEC OPERAÇÕES TECNOLOGIA INDUSTRIAL</p>
+                        <p>GER SERVIÇOS TECNOLOGIA AUTOMAÇÃO SUL</p>
+                    </div>
+                </div>
+                <div class="div3">
+                    <P>Doc: </P>
+                    <P>Aprov: </P>
+                    <P>Versão: </P>
+                    <P>Data: </P>
                 </div>
             </div>
-            <div class="div3">
-                <P>Doc: </P>
-                <P>Aprov: </P>
-                <P>Versão: </P>
-                <P>Data: </P>
+            <div class="relatgeral">RELATÓRIO SEMANAL DE ATIVIDADES (RSA)</div>
+            <div class="infGerais"><img src="./imagens/fundo.jpg" class="imgFundo" alt="">1 - Informações Gerais:</div>
+            <div class="nomeExec">
+                <div id="exec">Executante:</div>
+                <div class="nomeExecutante" id="nomeExecutante">Thiago Silva Carlos</div>
+            </div>
+            <div class="linha1">
+                <p>Tag de serviço: </p>
+                <p>5900107948-PICO</p>
+                <p>Título da ADP:</p>
+                <p>Suporte atividade rotina - Pico
+                </p>
+            </div>
+            <div class="linha2">
+                <p>Site: </p>
+                <p>PICO</p>
+                <p>Modalidade:</p>
+                <p>Escopo local
+                </p>
+                <p>Fiscal:
+                </p>
+                <p id="fiscal">Marina Sousadsd
+                </p>
+            </div>
+
+            <div class="infGerais"><img src="./imagens/fundo.jpg" class="imgFundo" alt="">2 - Período</div>
+            <div class="linha3">
+                <p>Período: </p>
+                <input type="date" id="dataInicial" onchange="atualizaData()">
+                <p>à</p>
+                <p id="dataFinal">08/05/2024</p>
+                <p>Emissão:</p>
+                <p id="dataDeHoje">25/05/2014
+                </p>
+            </div>
+            <div class="infGerais inf3"><img src="./imagens/fundo.jpg" class="imgFundo" alt="">3 - Assinaturas</div>
+            <div class="Assinaturas">
+                <div class="Ass1">
+                    <p> <u>Executante CAST LOGIX</u></p>
+                    <p id="assinaturaColab">Thiago Silva Carlos</p>
+
+                </div>
+                <div class="Ass1">
+                    <p> <u>Fiscal VALE</u></p>
+                </div>
+            </div>
+            <div class="infGerais inf3"><img src="./imagens/fundo.jpg" class="imgFundo" alt="">4 - Pacote de entregas
+            </div>
+            <div class="infGerais escopoLocal"><img src="./imagens/fundo.jpg" class="imgFundo" alt="">Escopo local</div>
+
+            <div class="HeaderTabela">
+                <img src="./imagens/fundo.jpg" class="imgFundo" alt="">
+                <p>Complexo</p>
+                <p>Site</p>
+                <p>Descrição de Atividades Prevista</p>
+                <p>Data</p>
+                <p>Semana</p>
+                <p>Descrição de Atividades Executadas</p>
+                <p>Home<br>Office</p>
+            </div>
+            <div class="TabLinha TabLinha1">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea1" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea2" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha2">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea3" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea4" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha1">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea5" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea6" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha1">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea7" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea8" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha1">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea9" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea10" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha1">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea11" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea12" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
+            </div>
+
+            <div class="TabLinha TabLinha1" style="page-break-inside: avoid;">
+                <p>VGR</p>
+                <p>Pico</p>
+                <textarea id="my-textarea13" onchange="verifyHeight()"
+                    style="resize: none;">Descrição de Atividades Prevista</textarea>
+                <p class="tabData">Data</p>
+                <p class="tabSemana">Semana</p>
+                <textarea id="my-textarea14" onchange="verifyHeight() "
+                    style="resize: none;">Descrição de Atividades Executadas</textarea>
+                <p><input type="checkbox" name="" id=""></p>
             </div>
         </div>
-        <div class="relatgeral">RELATÓRIO SEMANAL DE ATIVIDADES (RSA)</div>
-        <div class="infGerais">1 - Informações Gerais:</div>
-        <div class="nomeExec">
-            <div id="exec">Executante:</div>
-            <div class="nomeExecutante" id="nomeExecutante">Thiago Silva Carlos</div>
-        </div>
-        <div class="linha1">
-            <p>Tag de serviço: </p>
-            <p>5900107948-PICO</p>
-            <p>Título da ADP:</p>
-            <p>Suporte atividade rotina - Pico
-            </p>
-        </div>
-        <div class="linha2">
-            <p>Site: </p>
-            <p>PICO</p>
-            <p>Modalidade:</p>
-            <p>Escopo local
-            </p>
-            <p>Fiscal:
-            </p>
-            <p id="fiscal">Marina Sousa
-            </p>
-        </div>
-
-        <div class="infGerais">2 - Período</div>
-        <div class="linha3">
-            <p>Período: </p>
-            <p id="dataInicial">09/06/2024</p>
-            <p>à</p>
-            <p id="dataFinal">08/05/2024</p>
-            <p>Emissão:</p>
-            <p id="dataDeHoje">25/05/2014
-            </p>
-        </div>
-        <div class="infGerais inf3">3 - Assinaturas</div>
-        <div class="Assinaturas">
-            <div class="Ass1">
-                <p> <u>Executante CAST LOGIX</u></p>
-                <p id="assinaturaColab">Thiago Silva Carlos</p>
-
+        <div class="Desvios">
+            <div class=""><img src="./imagens/fundo.jpg" class="imgFundo" alt="">5 - Desvios (acumulado)</div>
+            <div class="tabela2" style="height: 12cm;">
+                <img src="./imagens/fundo.jpg" class="imgFundo" style="height: 0.6cm;" alt="">
+                <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>ADP</th>
+                        <th>Descrição do desvio</th>
+                        <th>Plano de ação</th>
+                        <th>Prazo de execução</th>
+                        <th>Data da execução</th>
+                        <th>Responsabilidade</th>
+                        <th>Responsável</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
             </div>
-            <div class="Ass1">
-                <p> <u>Fiscal VALE</u></p>
-            </div>
-        </div>
-        <div class="infGerais inf3">4 - Pacote de entregas</div>
-        <div class="infGerais escopoLocal">Escopo local</div>
-
-        <div class="HeaderTabela">
-            <p>Complexo</p>
-            <p>Site</p>
-            <p>Descrição de Atividades Prevista</p>
-            <p>Data</p>
-            <p>Semana</p>
-            <p>Descrição de Atividades Executadas</p>
-            <p>Home<br>Office</p>
-        </div>
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea1" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea2" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
-        </div>
-
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea3" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea4" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
-        </div>
-
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea5" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea6" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
-        </div>
-
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea7" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea8" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
         </div>
             
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea9" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea10" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
+        <div class="naoImprimir">
+            <input type="file" id="imageInput" accept="image/*" multiple>
+            <button onclick="uploadImages()">Upload</button>
+            <button onclick="limparImagens()">Limpar</button>
+            <div id="imageContainer"></div>
         </div>
 
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea11" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea12" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
-        </div>
-           
-        <div class="TabLinha TabLinha1">
-            <p>VGR</p>
-            <p>Pico</p>
-            <textarea id="my-textarea13" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Prevista</textarea>
-            <p>Data</p>
-            <p>Semana</p>
-            <textarea id="my-textarea14" onchange="verifyHeight()" style="resize: none;">Descrição de Atividades Executadas</textarea>
-            <p><input type="checkbox" name="" id=""></p>
-        </div>
+
+        <script src="./rsa.js"></script>
     </div>
 
-
-    <button onclick="teste()"></button>
-
-    <script src="./rsa.js"></script>
 </body>
 
 </html>
