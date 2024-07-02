@@ -269,7 +269,7 @@
                 if (document.getElementById("linkManual").value == "") {
                     alert("Preencha o link do documento")
                 } else {
-                    let manName = "" + document.getElementById("nomeManual").value.replace("/", "-").replace(",", "")
+                    let manName = "" + document.getElementById("nomeManual").value.replace("/", "-").replace(",", "").replace(".", "").replace("#", "").replace("]", "").replace("$", "").replace("[", "")
                     let manLink = "" + document.getElementById("linkManual").value
                     addData(manName, manLink)
                     buscaValorInserido()
