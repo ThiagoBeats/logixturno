@@ -278,7 +278,7 @@ function geradorRSA(){
   if (localStorage.getItem(dataSolucao) == null) {
     localStorage.setItem(dataSolucao, document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n\n")
   } else {
-    localStorage.setItem(dataSolucao, localStorage.getItem(dataSolucao) + document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n")
+    localStorage.setItem(dataSolucao, localStorage.getItem(dataSolucao) + document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n\n")
   }
 }
 
