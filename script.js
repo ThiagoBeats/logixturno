@@ -115,7 +115,7 @@ function atualizaSolucoes() {
           "\n\n*Encerramento:* " +
           Encerramento +
           "\n_\n";
-          localStorage.setItem("nomeFiscal", "Marina Sousa")
+          localStorage.setItem("nomeFiscal", "Nayara Moreira")
           geradorRSA()
         document.getElementById("Incidente").value = "";
         document.getElementById("probl").value = "";
