@@ -238,10 +238,10 @@ function imgPerfil(params) {
       img.src = "./Imagens/lorena.jpg";
     } else {
       if (
-        nome.value.toUpperCase().includes("OTAVIO") ||
-        nome.value.toUpperCase().includes("OTÁVIO")
+        nome.value.toUpperCase().includes("VINIC") ||
+        nome.value.toUpperCase().includes("VINÍC")
       ) {
-        img.src = "./Imagens/otavio.jpg";
+        img.src = "./Imagens/vinic.jpg";
       } else {
         if (nome.value.toUpperCase().includes("LUIS")) {
           img.src = "./Imagens/luis.jpg";
