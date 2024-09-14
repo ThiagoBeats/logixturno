@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Esta função será executada quando o DOM estiver completamente carregado
-  document.getElementById("solucao").value = localStorage.getItem("relatorioSalvo")
-  document.getElementById("Turno").value = localStorage.getItem("turnoSalvo")
-  document.getElementById("Nome").value = localStorage.getItem("nomeSalvo")
-  document.getElementById("Matricula").value = localStorage.getItem("matriculaSalva")
-  atualizaParams()
+  document.getElementById("solucao").value =
+    localStorage.getItem("relatorioSalvo");
+  document.getElementById("Turno").value = localStorage.getItem("turnoSalvo");
+  document.getElementById("Nome").value = localStorage.getItem("nomeSalvo");
+  document.getElementById("Matricula").value =
+    localStorage.getItem("matriculaSalva");
+  atualizaParams();
   var elemento = document.getElementById("imgRelatorio");
   elemento.disabled = true;
 });
@@ -65,7 +67,6 @@ var solucoes = [
 ];
 
 function atualizaSolucoes() {
-
   atualizaParams2();
   var textoProblema = document.getElementById("probl").value;
   var textoSolucao = document.getElementById("solu").value;
@@ -115,12 +116,12 @@ function atualizaSolucoes() {
           "\n\n*Encerramento:* " +
           Encerramento +
           "\n_\n";
-          localStorage.setItem("nomeFiscal", "Nayara Moreira")
-          geradorRSA()
+        localStorage.setItem("nomeFiscal", "Nayara Moreira");
+        geradorRSA();
         document.getElementById("Incidente").value = "";
         document.getElementById("probl").value = "";
         document.getElementById("solu").value = "";
-        salvaDados()
+        salvaDados();
         break;
       }
     }
@@ -128,22 +129,19 @@ function atualizaSolucoes() {
 }
 
 function salvaDados() {
-  var relat = document.getElementById("solucao").value
-  localStorage.setItem("relatorioSalvo", relat)
-  localStorage.setItem("nomeSalvo", nome)
-  localStorage.setItem("matriculaSalva", matricula)
-  localStorage.setItem("turnoSalvo", turno)
+  var relat = document.getElementById("solucao").value;
+  localStorage.setItem("relatorioSalvo", relat);
+  localStorage.setItem("nomeSalvo", nome);
+  localStorage.setItem("matriculaSalva", matricula);
+  localStorage.setItem("turnoSalvo", turno);
 }
 var DadosDoUsuario;
 function atualizaParams() {
-
   imgPerfil();
   turno = document.getElementById("Turno").value;
   nome = document.getElementById("Nome").value;
   data = document.getElementById("Data").value;
   matricula = document.getElementById("Matricula").value;
-
-  
 
   var ano = data.substring(0, 4);
   var mes = data.substring(5, 7);
@@ -255,45 +253,137 @@ function imgPerfil(params) {
 
 //Verifica o setor para gerar o relatório
 function verificaSetor() {
-  setor = document.getElementById('setor')
-  if (setor.value == "automacaovgr"){
-    window.location.href = './setores/vgr/vgr.html'
-  }else{
-    if (setor.value == "eletricapico"){
-      window.location.href = './setores/eletricaPico/eletPico.html'
-  }
-}}
-
-//Salva os dados para gerar o RSA
-function geradorRSA(){
-  let dataProblema = "dia_" + data + "_probl"
-  let dataSolucao = "dia_" + data + "_solu"
-
-  if (localStorage.getItem(dataProblema) == null) {
-    localStorage.setItem(dataProblema, document.getElementById("Incidente").value + " - " + document.getElementById("probl").value + "\n\n")
+  setor = document.getElementById("setor");
+  if (setor.value == "automacaovgr") {
+    window.location.href = "./setores/vgr/vgr.html";
   } else {
-    localStorage.setItem(dataProblema, localStorage.getItem(dataProblema) + document.getElementById("Incidente").value + " - " + document.getElementById("probl").value + "\n\n")
-  }
-
-  if (localStorage.getItem(dataSolucao) == null) {
-    localStorage.setItem(dataSolucao, document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n\n")
-  } else {
-    localStorage.setItem(dataSolucao, localStorage.getItem(dataSolucao) + document.getElementById("Incidente").value + " - " + document.getElementById("solu").value + "\n\n")
+    if (setor.value == "eletricapico") {
+      window.location.href = "./setores/eletricaPico/eletPico.html";
+    }
   }
 }
 
-// let arrayRSA = ["colaborador", "fiscal"]
-// function geradorRSA2() {
-//   arrayRSA[0] = document.getElementById("Nome").value;
-//   arrayRSA[1] = "Marina Sousa"
-//   arrayRSA.push({
-//     data: document.getElementById("Data").value,
-//     incidente: document.getElementById("Incidente").value,
-//     problema: document.getElementById("probl").value,
-//     solucao: document.getElementById("solu").value
-//   })
-//   // let RSASalvo = localStorage.getItem("DadosRSA")
-//   // RSASalvo += arrayRSA;
-//    localStorage.setItem("DadosRSA", arrayRSA)
-// }
+//Salva os dados para gerar o RSA
+function geradorRSA() {
+  let dataProblema = "dia_" + data + "_probl";
+  let dataSolucao = "dia_" + data + "_solu";
 
+  if (localStorage.getItem(dataProblema) == null) {
+    localStorage.setItem(
+      dataProblema,
+      document.getElementById("Incidente").value +
+        " - " +
+        document.getElementById("probl").value +
+        "\n\n"
+    );
+  } else {
+    localStorage.setItem(
+      dataProblema,
+      localStorage.getItem(dataProblema) +
+        document.getElementById("Incidente").value +
+        " - " +
+        document.getElementById("probl").value +
+        "\n\n"
+    );
+  }
+
+  if (localStorage.getItem(dataSolucao) == null) {
+    localStorage.setItem(
+      dataSolucao,
+      document.getElementById("Incidente").value +
+        " - " +
+        document.getElementById("solu").value +
+        "\n\n"
+    );
+  } else {
+    localStorage.setItem(
+      dataSolucao,
+      localStorage.getItem(dataSolucao) +
+        document.getElementById("Incidente").value +
+        " - " +
+        document.getElementById("solu").value +
+        "\n\n"
+    );
+  }
+}
+
+
+
+//*********** Lógica do CHATBOT ****************/
+
+let respostaChatbot = ''
+
+const sourceId = "cha_aWnVyPSfrpwBIu74vCm8M";
+const apiKey = "sec_33ZQPySkOpWg8s3ETNwtFkL0NDDyKb1W";
+
+const config = {
+  headers: {
+    "x-api-key": apiKey,
+    "Content-Type": "application/json",
+  },
+};
+
+function perguntar(pergunta) {
+  const data = {
+    sourceId: sourceId,
+    messages: [
+      {
+        role: "user",
+        content: pergunta,
+      },
+    ],
+  };
+  var resp = document.createElement("p");
+  const chatDisplay = document.getElementById("chatDisplay");
+  axios
+    .post("https://api.chatpdf.com/v1/chats/message", data, config)
+    .then((response) => {
+      console.log("Resposta:", response.data.content);
+      respostaChatbot = response.data.content;
+      resp.innerText = 'Chatbot: ' + respostaChatbot
+    })
+    .catch((error) => {
+      resp.innerText = 'Chatbot: ' +  error.message
+      console.error("Erro:", error.message);
+      console.log("Response:", error.response.data);
+    });
+    
+  resp.style.borderBottom = '1px solid black'
+    chatDisplay.appendChild(resp);
+}
+
+function openPopup() {
+  console.log("ai");
+  document.getElementById("chatbotPopup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("chatbotPopup").style.display = "none";
+}
+
+function sendMessage() {
+  const inputField = document.getElementById("userInput");
+  const chatDisplay = document.getElementById("chatDisplay");
+
+  const userMessage = inputField.value;
+  if (userMessage.trim() === "") return;
+
+  // Exibir mensagem do usuário
+  var perg = document.createElement("p");
+  perg.innerText = 'Você: ' +  userMessage
+  perg.style.backgroundColor = 'DarkGray'
+  perg.style.width = '100%'
+  perg.style.margin = 0
+  perg.style.color = "Black"
+  chatDisplay.appendChild(perg)
+  //chatDisplay.innerHTML += `<div><strong>Você:</strong> ${userMessage}</div>`;
+
+  // Simular resposta do chatbot
+  perguntar(userMessage);
+  //const botResponse = respostaChatbot
+  //chatDisplay.innerHTML += `<div><strong>Chatbot:</strong> ${respostaChatbot}</div><br>--------------------------------------------------------------------------------`;
+
+  // Limpar o campo de entrada
+  inputField.value = "";
+  chatDisplay.scrollTop = chatDisplay.scrollHeight; // Rolar para o fundo
+}
