@@ -163,16 +163,14 @@
   </div>
 
   <div class="popup" id="chatbotPopup">
-    <div class="popup-header">Chatbot - Logix<img src="./Imagens/chatbot.png" alt=""></div>
+    <div class="popup-header"><img src="./Imagens/chatbot.png" alt="">Chatbot - Logix<button  class="buttonChatbot" class="close" onclick="closePopup()"><img src="./Imagens/icons8-cancelar-100.png" alt=""></button></div>
     <div class="popup-body" id="chatDisplay"></div>
     <div class="popup-footer">
       <input type="text" id="userInput" onchange="sendMessage()" placeholder="Digite sua pergunta..." />
-      <button class="buttonChatbot" onclick="sendMessage()">Enviar</button>
+      <button class="buttonChatbot" onclick="sendMessage()"><img src="./Imagens/icons8-enviado-48.png" alt=""></button>
     </div>
-    <button  class="buttonChatbot" class="close" onclick="closePopup()">Fechar</button>
+    
   </div>
-
-
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 

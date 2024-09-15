@@ -14,6 +14,7 @@
     padding: 20px;
     z-index: 1000;
     color: white;
+    margin: 0;
 }
 .popup-header {
     font-size: 2rem;
@@ -21,7 +22,7 @@
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     
     color: white;
     >img{
@@ -46,28 +47,42 @@
 }
 .popup-footer {
     display: flex;
+    height: auto;
     justify-content: space-between;
 }
-input[type="text"] {
-    width: 70%;
+#userInput {
+    width: 80%;
     padding: 5px;
     border: 1px solid #440000;
     border-radius: 4px;
+    height: 30px;
 }
 .buttonChatbot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px 10px;
     border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 4px;
+    background-color: #fefffe;
+    color: rgb(0, 0, 0);
+    border-radius: 20%;
     cursor: pointer;
+    height: 40px;
+    width: 40px;
+    transition: 0.1s;
+
+    >img{
+        height: 80%;
+    }
 }
-button:hover {
-    background-color: #218838;
+.buttonChatbot:hover {
+    background-color: #808180;
+    color: white;
+    scale: 1.2;
 }
 .close {
     background-color: #dc3545;
-}
-.close:hover {
-    background-color: #c82333;
+    width: 20px;
+    height: 20px;
+    border-radius: 0%;
 }

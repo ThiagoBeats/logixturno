@@ -313,7 +313,7 @@ function geradorRSA() {
 
 let respostaChatbot = ''
 
-const sourceId = "cha_aWnVyPSfrpwBIu74vCm8M";
+const sourceId = "cha_cJ2PRVOOYN7TPNH7uZRlm";
 const apiKey = "sec_33ZQPySkOpWg8s3ETNwtFkL0NDDyKb1W";
 
 const config = {
@@ -373,7 +373,6 @@ function sendMessage() {
   perg.innerText = 'Você: ' +  userMessage
   perg.style.backgroundColor = 'DarkGray'
   perg.style.width = '100%'
-  perg.style.margin = 0
   perg.style.color = "Black"
   chatDisplay.appendChild(perg)
   //chatDisplay.innerHTML += `<div><strong>Você:</strong> ${userMessage}</div>`;
