@@ -226,6 +226,7 @@ function encaminhar() {
   window.open(fullMessage, "_blank");
 }
 
+/*
 function imgPerfil(params) {
   var img = document.getElementById("imgPerfil");
   nome = document.getElementById("Nome");
@@ -249,6 +250,32 @@ function imgPerfil(params) {
       }
     }
   }
+}*/
+
+//Atualiza a foto do usuário mostrada na tela
+function imgPerfil() {
+  const img = document.getElementById("imgPerfil");
+  const nome = document.getElementById("Nome").value.toUpperCase();
+
+  // Mapeamento de nomes para imagens
+  const imagens = {
+    PEDRO: "./Imagens/pedro.jpg",
+    LORENA: "./Imagens/lorena.jpg",
+    VINIC: "./Imagens/vinic.jpg",
+    VINÍC: "./Imagens/vinic.jpg",
+    LUIS: "./Imagens/luis.jpg",
+  };
+
+  // Verifica se algum nome corresponde
+  for (const chave in imagens) {
+    if (nome.includes(chave)) {
+      img.src = imagens[chave];
+      return;
+    }
+  }
+
+  // Imagem padrão
+  img.src = "./Imagens/imgteste.jpg";
 }
 
 //Verifica o setor para gerar o relatório
