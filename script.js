@@ -264,6 +264,8 @@ function imgPerfil() {
     VINIC: "./Imagens/vinic.jpg",
     VINÍC: "./Imagens/vinic.jpg",
     LUIS: "./Imagens/luis.jpg",
+    JOÃO: "./Imagens/joao.jpg",
+    NAYRA: "./Imagens/nayra.jpg"
   };
 
   // Verifica se algum nome corresponde
